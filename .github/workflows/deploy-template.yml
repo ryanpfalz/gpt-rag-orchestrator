@@ -62,16 +62,36 @@ jobs:
       ##
 
       # Create new environment
+      # - name: Check if '${{ inputs.AZURE_ENV_NAME }}' environment exists
+      #   id: check-env
+      #   run: |
+      #     if azd env list | grep -q ${{ inputs.AZURE_ENV_NAME }}; then
+      #       echo "${{ inputs.AZURE_ENV_NAME }} environment already exists"
+      #       echo "::set-output name=env_exists::true"
+      #     else
+      #       echo "${{ inputs.AZURE_ENV_NAME }} environment does not exist"
+      #       echo "::set-output name=env_exists::false"
+      #     fi
       - name: Check if '${{ inputs.AZURE_ENV_NAME }}' environment exists
         id: check-env
+        shell: pwsh
         run: |
-          if azd env list | grep -q ${{ inputs.AZURE_ENV_NAME }}; then
-            echo "${{ inputs.AZURE_ENV_NAME }} environment already exists"
-            echo "::set-output name=env_exists::true"
-          else
-            echo "${{ inputs.AZURE_ENV_NAME }} environment does not exist"
-            echo "::set-output name=env_exists::false"
-          fi
+          $envExists = $false
+          azd env list | ForEach-Object {
+              $envName = ($_ -split "\s+")[0]
+              if ($envName -eq "${{ inputs.AZURE_ENV_NAME }}") {
+                  $envExists = $true
+              }
+          }
+
+          if ($envExists) {
+              Write-Host "Environment already exists"
+              Write-Host "::set-output name=env_exists::true"
+          } else {
+              Write-Host "Environment does not exist"
+              Write-Host "::set-output name=env_exists::false"
+          }
+
 
       - name: Conditional step based on environment check
         # if: steps.check-env.outputs.env_exists == 'false'
