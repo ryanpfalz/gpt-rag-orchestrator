@@ -1,8 +1,9 @@
 # Enterprise RAG Orchestrator
 
-This Orchestrator is part of the **Enterprise RAG (GPT-RAG)** Solution Accelerator.
+> [!IMPORTANT]
+> - This repository is part of a collection of repositories for the **Enterprise RAG (GPT-RAG)** Solution Accelerator. The solution infrastructure that the service in this repository is deployed to can be set up following the guidance in [GPT-RAG](https://github.com/Azure/gpt-rag).
+> - If you followed the guidance in [GPT-RAG](https://github.com/Azure/gpt-rag) to provision end-to-end multi-environment infrastructure with Azure DevOps or GitHub, you can continue to follow the [Azure DevOps](./docs/AZDO-SETUP.md) or [GitHub](./docs/GH-SETUP.md) guidance to set up and deploy the service in this repository to the infrastructure.
 
-To learn more about the Enterprise RAG, please go to [https://aka.ms/gpt-rag](https://aka.ms/gpt-rag).
 
 ### Cloud Deployment
 
