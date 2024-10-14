@@ -150,7 +150,7 @@ If you opted to provision network isolated infrastructure with the [GPT-RAG](htt
 ### Setting up the VM as a self-hosted agent
 
 1. Log into the virtual machine with the user **gptrag** and authenticate with the password stored in the Key Vault, similar to the figure below:
-   <img src="../media/readme-keyvault-login.png" alt="Key Vault Login" width="1024">
+   <img src="./media/readme-keyvault-login.png" alt="Key Vault Login" width="1024">
 
 > [!TIP]
 > If you get Error "You do not have access to List secrets for this resource", you need to be added as a Key Vault Secrets User in the Key Vault that starts with `bastionkv`.
