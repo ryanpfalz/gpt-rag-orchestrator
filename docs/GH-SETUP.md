@@ -88,7 +88,9 @@ test_client_id=$(az ad sp list --display-name $test_principal_name --query "[].a
 prod_client_id=$(az ad sp list --display-name $prod_principal_name --query "[].appId" --output tsv)
 ```
 
-> [!NOTE] > _Alternative approach to get the client IDs in the above steps:_
+> [!NOTE]
+>
+> _Alternative approach to get the client IDs in the above steps:_
 > In the event that there are multiple Service Principals containing the same name, the `az ad sp list` command executed above may not pull the correct ID. You may execute an alternate command to manually review the list of Service Principals by name and ID. The command to do this is exemplified below for the dev environment.
 >
 > ```bash
@@ -163,7 +165,7 @@ If you opted to provision network isolated infrastructure with the [GPT-RAG](htt
 ### Setting up the VM as a self-hosted runner
 
 1. Log into the virtual machine with the user **gptrag** and authenticate with the password stored in the Key Vault, similar to the figure below:
-   <img src="../media/readme-keyvault-login.png" alt="Key Vault Login" width="1024">
+   <img src="./media/readme-keyvault-login.png" alt="Key Vault Login" width="1024">
 
 > [!TIP]
 > If you get Error "You do not have access to List secrets for this resource", you need to be added as a Key Vault Secrets User in the Key Vault that starts with `bastionkv`.
