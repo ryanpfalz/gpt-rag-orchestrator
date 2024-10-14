@@ -1,4 +1,4 @@
-name: Multi-Environment Build and Deploy
+name: Multi-Environment Build and Deploy - Orchestrator
 
 on:
   workflow_dispatch:

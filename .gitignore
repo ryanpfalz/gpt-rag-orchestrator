@@ -66,3 +66,5 @@ __queuestorage__
 __azurite_db*__.json
 
 .azure
+
+**federated_id.json
